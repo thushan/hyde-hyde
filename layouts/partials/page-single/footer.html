@@ -1,6 +1,6 @@
 {{ $include_toc := .Params.include_toc}}
 <!-- Include Analytics here -->
-{{ partial "footer/font-awesome-js.html" . }}
+<!-- Include Icons here -->
 {{ with .Site.Params.toc }}
 {{ if and (eq . "tocbot") (ne $include_toc false) }}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
