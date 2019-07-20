@@ -36,9 +36,6 @@
 {{ end }}
 
 {{ define "footer" }}
-  {{ if .Site.GoogleAnalytics }}
-    <!-- Google Analytics -->
-    {{ template "_internal/google_analytics_async.html" . }}
-  {{ end }}
+  <!-- Include Analytics here -->
   {{ partial "footer/font-awesome-js.html" . }}
 {{ end }}
