@@ -20,6 +20,7 @@ h1,
 h2,
 h3,
 h4 {
+	color: $gray-2;
 	font-weight: $heading-font-weight;
 }
 
@@ -53,23 +54,39 @@ figure {
 }
 
 %quotebox {
-	padding: .8889rem;
-	margin-top: 1rem;
+	padding-left: 1.29rem;
+	padding-right: 1.29rem;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 	margin-left: 0px;
 	margin-right: 0px;
 	//border-radius: 6px;
-	border-left: 6px solid;
-	border-right: 6px solid transparent;
-	border-right-width: 6px;
-	border-right-style: solid;
-	border-right-color: rgba(0, 0, 0, 0) transparent;
-	color: #7a7a7a;
+	// border-left: 6px solid;
+	// border-right: 6px solid transparent;
+	// border-right-width: 6px;
+	// border-right-style: solid;
+	// border-right-color: rgba(0, 0, 0, 0) transparent;
+	// color: #7a7a7a;
+	border-top: 1px solid $pink;
+	border-bottom: 1px solid $pink;
 }
 
 blockquote {
-	background-color: #fafafa;
-	border-left-color: #e6e6e6;
+	// background-color: #fafafa;
+	// border-left-color: #e6e6e6;
 	@extend %quotebox;
+
+	p {
+		position: relative;
+
+		&:before {
+			content: ">";
+			display: block;
+			position: absolute;
+			left: -25px;
+			color: $pink;	
+		}
+	}
 }
 
 .important {
