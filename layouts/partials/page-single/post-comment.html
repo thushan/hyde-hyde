@@ -1,8 +1,6 @@
 {{ if ne .Params.showcomments false }}
-    <!-- Add comment here -->
-    {{ if .Site.Params.UtterancesRepo }}
-        {{ partial "page-single/comment/utterances.html" . }}
-    {{ else if .Site.Params.Commento }}
+    <!-- Comment section -->
+    {{ if .Site.Params.Commento }}
         {{ partial "page-single/comment/commento.html" . }}
     {{ end }}
 {{ end }}
