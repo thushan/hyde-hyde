@@ -3,6 +3,20 @@
   color: $meta-color;
   font-weight: $meta-font-weight;
   margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: $pink;
+    background: linear-gradient(to right, rgba($pink, 1) 0%, rgba($blue, 1) 50%, rgba($cyan, 1) 100%);
+  }
+  
 }
 
 .post__category {
