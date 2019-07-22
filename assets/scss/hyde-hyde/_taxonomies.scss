@@ -1,37 +1,24 @@
 .badge-category,
 a.badge-category {
-  color: $gray-0 !important;
-  background-color: $orange;
+  color: $orange;
   &:hover, &:focus {
-    color: $orange !important;
-    background: transparent;
-    background-color: transparent;
-    text-decoration: none;
-    border-bottom: none;
+    @include link-hover();
   }
 }
 
 .badge-tag,
 a.badge-tag {
-  color: $gray-0 !important;
-  background-color: $cyan;
+  color: $cyan;
   &:hover, &:focus {
-    color: $cyan !important;
-    background: transparent;
-    background-color: transparent;
-    text-decoration: none;
-    border-bottom: none;
+    @include link-hover();
+    color: $cyan;
   }
 }
 
 .badge {
-  display: inline-block;
-  padding: 0.25em 0.4em;
+  margin: 0.25em 0.4em;
   font-size: 0.75rem;
   font-weight: bold;
   line-height: 1;
   text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: 0.25rem;
 }
