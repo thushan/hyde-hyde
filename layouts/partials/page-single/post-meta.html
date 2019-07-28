@@ -2,7 +2,7 @@
 <div class="post__meta">
     <!-- published date -->
     {{ if not .Date.IsZero }}
-      <i class="fas fa-calendar-alt"></i> {{ .Date.Format (.Site.Params.dateformat | default "2006年01月02日") }}
+      {{ .Date.Format (.Site.Params.dateformat | default "2006年01月02日") }}
     {{ end }}
     <!-- categories -->
     {{ with .Params.categories }}
@@ -21,7 +21,7 @@
       {{ $total := len . }}
       {{ if gt $total 0 }}
           with
-          {{ $subtotal := sub $total 1 }} <i class="fas fa-tags"></i>
+          {{ $subtotal := sub $total 1 }}
           {{ range $i, $tag := . }}
             <a class="badge badge-tag" href="{{ "/tags/" | relURL }}{{ $tag | urlize }}">#{{ $tag | lower }}</a>
             {{ if lt $i $subtotal }} {{ end }}
@@ -29,6 +29,6 @@
       {{ end }}
     {{ end }}
     <br/>
-    <i class="fas fa-clock"></i> 約 {{ .ReadingTime }} 分
+    約 {{ .ReadingTime }} 分
 </div>
 {{ end }}
