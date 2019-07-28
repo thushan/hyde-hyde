@@ -1,23 +1,38 @@
 <section class="social">
 	{{ with .Site.Params.social.twitter }}
-	<a href="https://twitter.com/{{.}}" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	<a href="https://twitter.com/{{.}}" rel="me"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.github }}
-	<a href="https://github.com/{{.}}" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	<a href="https://github.com/{{.}}" rel="me"><i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
+	{{ end }}
+	{{ with .Site.Params.social.newspicks }}
+	<a href="https://newspicks.com/user/{{.}}" rel="me"><img class="fa fa-lg" src="/img/newspicks-logo.svg" alt="NewsPicks Logo" aria-hidden="true"></a>
+	{{ end }}
+	{{ with .Site.Params.social.mastodon }}
+	<a href="https://{{.}}" rel="me"><i class="fa fa-mastodon fa-lg" aria-hidden="true"></i></a>
+	{{ end }}
+	{{ with .Site.Params.social.quora }}
+	<a href="https://www.quora.com/profile/{{.}}" rel="me"><i class="fa fa-quora fa-lg" aria-hidden="true"></i></a>
+	{{ end }}
+	{{ with .Site.Params.social.wantedly }}
+	<a href="https://www.wantedly.com/users/{{.}}" rel="me"><img class="fa fa-lg" src="/img/wantedly-logo.svg" alt="NewsPicks Logo" aria-hidden="true"></a>
 	{{ end }}
 	{{ with .Site.Params.social.linkedin }}
-	<a href="https://linkedin.com/in/{{.}}" rel="me"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	<a href="https://linkedin.com/in/{{.}}" rel="me"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.stackoverflow }}
-	<a href="https://stackoverflow.com/users/{{.}}" rel="me"><i class="fab fa-stack-overflow fa-lg" aria-hidden="true"></i></a>
+	<a href="https://stackoverflow.com/users/{{.}}" rel="me"><i class="fa fa-stack-overflow fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.medium}}
-	<a href="https://medium.com/@{{.}}" rel="me"><i class="fab fa-medium fa-lg" aria-hidden="true"></i></a>
+	<a href="https://medium.com/@{{.}}" rel="me"><i class="fa fa-medium fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.keybase }}
-	<a href="https://keybase.io/{{.}}" rel="me"><i class="fab fa-keybase fa-lg" aria-hidden="true"></i></a>
+	<a href="https://keybase.io/{{.}}" rel="me"><i class="fa fa-keybase fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
+	{{ range .AlternativeOutputFormats -}}
+		{{ printf `<a href="%s" rel="me"><i class="fa fa-rss fa-lg" aria-hidden="true"></i></a>` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+	{{ end -}}
 	{{ with .Site.Params.social.email }}
-	<a href="mailto:{{.}}" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	<a href="mailto:{{.}}" rel="me"><i class="fa fa-at fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
 </section>

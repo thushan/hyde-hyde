@@ -52,6 +52,22 @@ img {
   max-width: 100%;
   margin: 0 0 1rem;
   border-radius: 5px;
+
+  &.fa {
+    margin: 0;
+    border-radius: 0;
+
+    &-lg {
+      max-width: 1.33333333em;
+      height: 17px;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $pink;
+      // fill: $pink;
+    }
+  }
 }
 
 table {
