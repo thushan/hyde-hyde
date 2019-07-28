@@ -32,6 +32,7 @@ h1 {
 
 h2 {
 	font-size: $h2-font-size;
+	line-height: $h1-line-height;
 	margin-bottom: .5rem;
 }
 
@@ -47,15 +48,26 @@ h5 {
 	font-size: $h5-font-size;
 }
 
+strong {
+	color: $gray-2;
+}
+
 hr {
 	color: $pink;
 	margin: 1.5rem 0;
-  }
+}
 
 figure {
 	max-width: 100%;
-	margin: 0;
+	margin: 2rem 0;
 	padding: 0;
+}
+
+figcaption {
+	font-family: $code-font-family;
+	font-size: $code-font-size;
+	@include link-hover();
+	color: $gray-4;
 }
 
 %quotebox {
@@ -88,22 +100,66 @@ blockquote {
 			content: ">";
 			display: block;
 			position: absolute;
-			left: -25px;
+			left: -4.8%;
 			color: $pink;	
 		}
 	}
 }
 
-.important {
-	background-color: #fbf8e8;
-	border-left-color: #fee450;
+.important,
+.warning,
+.information,
+.update {
+	background-color: rgba($yellow,.2);
 	@extend %quotebox;
+	border-color: $yellow;
+	padding-bottom: 1rem;
+
+	&::before {
+		content: "注意";
+		color: $yellow;
+		display: block;
+		text-align: center;
+	}
 }
 
 .warning {
-	background-color: #f2dbdc;
-	border-left-color: #ae272f;
-	@extend %quotebox;
+	background-color: rgba($orange,.2);
+	border-color: $orange;
+
+	&::before {
+		content: "警告";
+		color: $orange;
+	}
+}
+
+.information {
+	background-color: rgba($cyan,.2);
+	border-color: $cyan;
+
+	&::before {
+		content: "情報";
+		color: $cyan;
+	}
+}
+
+.update {
+	background-color: rgba($light-blue,.2);
+	border-color: $light-blue;
+
+	&::before {
+		content: "";
+	}
+
+	time {
+		display: block;
+		text-align: center;
+		
+		&::before {
+			content: "更新 ";
+			color: $light-blue;
+		}
+	}
 }
 
 kbd {
