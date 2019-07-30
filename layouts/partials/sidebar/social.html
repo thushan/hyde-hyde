@@ -29,9 +29,7 @@
 	{{ with .Site.Params.social.keybase }}
 	<a href="https://keybase.io/{{.}}" rel="me"><i class="fa fa-keybase fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
-	{{ range .AlternativeOutputFormats -}}
-		{{ printf `<a href="%s" rel="me"><i class="fa fa-rss fa-lg" aria-hidden="true"></i></a>` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-	{{ end -}}
+	<a href="/index.xml" rel="me"><i class="fa fa-rss fa-lg" aria-hidden="true"></i></a>
 	{{ with .Site.Params.social.email }}
 	<a href="mailto:{{.}}" rel="me"><i class="fa fa-at fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
