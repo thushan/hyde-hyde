@@ -56,11 +56,8 @@ img {
   &.fa {
     margin: 0;
     border-radius: 0;
-
-    &-lg {
-      max-width: 1.33333333em;
-      height: 17px;
-    }
+    max-width: 1.33333333em;
+    height: 17px;
 
     &:hover,
     &:focus {
