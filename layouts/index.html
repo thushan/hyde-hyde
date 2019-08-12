@@ -12,9 +12,9 @@
         {{ .Scratch.Set "draftPage" false }}
       {{ end }}
       <article class="post-list__item h-entry">
-        <span class="item__title--big p-name">
+        <h2 class="item__title--big p-name">
           <a href="{{ .RelPermalink }}" class="{{if .Scratch.Get "draftPage" }}draft {{end}}u-url">{{ .Title }}</a>
-        </span>
+        </h2>
         <time class="item__date dt-published" datetime="{{ .Date }}">
           {{ .Date.Format (.Site.Params.dateformat | default "2006年01月02日") }}
         </time>
