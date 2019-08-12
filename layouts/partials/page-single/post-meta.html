@@ -2,7 +2,7 @@
 <div class="post__meta">
     <!-- published date -->
     {{ if not .Date.IsZero }}
-      {{ .Date.Format (.Site.Params.dateformat | default "2006年01月02日") }}
+      <time class="dt-published" datetime="{{ .Date }}">{{ .Date.Format (.Site.Params.dateformat | default "2006年01月02日") }}</time>
     {{ end }}
     <!-- categories -->
     {{ with .Params.categories }}
