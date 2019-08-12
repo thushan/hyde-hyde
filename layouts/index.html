@@ -11,14 +11,14 @@
       {{ else }}
         {{ .Scratch.Set "draftPage" false }}
       {{ end }}
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="{{ .RelPermalink }}" {{if .Scratch.Get "draftPage" }}class="draft"{{end}}>{{ .Title }}</a>
+      <article class="post-list__item h-entry">
+        <span class="item__title--big p-name">
+          <a href="{{ .RelPermalink }}" class="{{if .Scratch.Get "draftPage" }}draft {{end}}u-url">{{ .Title }}</a>
         </span>
-        <span class="item__date">
+        <time class="item__date dt-published" datetime="{{ .Date }}">
           {{ .Date.Format (.Site.Params.dateformat | default "2006年01月02日") }}
-        </span>
-        <span {{if .Scratch.Get "draftPage" }}class="draft"{{end}}>
+        </time>
+        <span class="{{if .Scratch.Get "draftPage" }}draft {{end}}p-summary">
         {{ if .Description }}
         {{ .Description }}
         {{ else }}
@@ -28,7 +28,7 @@
         {{ if .Truncated }}
           ... <a class="read-more-symbol" href="{{ .RelPermalink }}">➦</a>
         {{ end }}
-        </div>
+      </article>
         {{ .Scratch.Delete "draftPage" }}
      {{ end }}
   </div>

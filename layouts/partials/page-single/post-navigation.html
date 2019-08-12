@@ -2,14 +2,14 @@
 {{ if $enabledPostNavigation }}
 <div class="navigation navigation-single">
     {{ with .PrevInSection }}
-    <a href="{{ .RelPermalink }}" class="navigation-prev">
+    <a href="{{ .RelPermalink }}" class="navigation-prev h-entry">
       <i aria-hidden="true" class="fa fa-chevron-left"></i>
-      <span class="navigation-tittle">{{ .Title }}</span>
+      <span class="navigation-tittle p-name">{{ .Title }}</span>
     </a>
     {{ end }}
     {{ with .NextInSection }}
-    <a href="{{ .RelPermalink }}" class="navigation-next">
-      <span class="navigation-tittle">{{ .Title }}</span>
+    <a href="{{ .RelPermalink }}" class="navigation-next h-entry">
+      <span class="navigation-tittle p-name">{{ .Title }}</span>
       <i aria-hidden="true" class="fa fa-chevron-right"></i>
     </a>
     {{ end }}
