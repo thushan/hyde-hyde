@@ -102,6 +102,12 @@
 .sidebar h2 {
 	margin: 0.3em 0;
 }
+.sidebar .subfoot {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+}
 .logo-cursor {
   display: inline-block;
   width: 10px;
