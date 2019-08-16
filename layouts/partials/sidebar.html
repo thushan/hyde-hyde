@@ -3,7 +3,7 @@
   <div class="container {{ with .Site.Params.sidebarSticky }}sidebar-sticky{{ end }}">
     <div class="sidebar-about">
       {{ if .IsHome }}<h1{{ else }}<span{{ end }} class="site__title">
-        <a class="u-url" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+        <a class="u-url" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a> <span class="logo-cursor"></span>
       {{ if .IsHome }}</h1>{{ else }}</span>{{ end }}
       {{ if and (isset .Site.Params "authorimage") }}
         {{ with .Site.Params.authorimage }}

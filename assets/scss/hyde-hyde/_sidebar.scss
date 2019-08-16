@@ -24,7 +24,7 @@
 }
 .sidebar-title {
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 .sidebar-nav {
   text-align: center;
@@ -89,7 +89,52 @@
   padding-top: 1rem;
 	@extend %small-center-text;
 }
-// .builtwith {
-//   padding-top: .2rem;
-//   @extend %small-center-text;
-// }
+
+.builtwith {
+   padding-top: .2rem;
+   @extend %small-center-text;
+}
+
+.sidebar hr {
+  border-color: $pink;
+	margin: 0.1em 0;
+}
+.sidebar h2 {
+	margin: 0.3em 0;
+}
+.logo-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 0.7em;
+  background: #fe5186;
+  /*background: #008F11;*/
+  padding-top: 10px;
+  margin-left: 0px;
+  border-radius: 1px;
+  -webkit-animation: cursor 1s infinite;
+  animation: cursor 1s infinite
+}
+
+@-webkit-keyframes cursor {
+  0% {
+      opacity: 0
+  }
+  50% {
+      opacity: 1
+  }
+  to {
+      opacity: 0
+  }
+}
+
+@keyframes cursor {
+  0% {
+      opacity: 0
+  }
+  50% {
+      opacity: 1
+  }
+  to {
+      opacity: 0
+  }
+}

@@ -9,6 +9,9 @@ $gray-6: #878787;
 $gray-8: #515151;
 $gray-9: #313131;
 
+$dark-grey: #252626;
+$light-grey: #292A2C;
+
 $dark-blue: #0F0027;
 $blue: #2D2E71;
 $pink: #EE1F7A;
@@ -28,8 +31,8 @@ $root-font-weight: 400;
 // 18px @ 33 px, 20px @ 33 px ~ 1.667em
 $root-line-height: 1.667em;
 
-$body-color: $light-blue;
-$body-bg: $dark-blue;
+$body-color: $gray-1;
+$body-bg: $light-grey;
 
 // $border-color: #e5e5e5;
 
@@ -90,9 +93,9 @@ $h5-font-size:1rem;
 
 // sidebar
 // $sidebar-color: #300030;
-$sidebar-color: $dark-blue;
-$sidebar-width: 16rem;
-$site__title-font-size: 2.5rem;
+$sidebar-color: $dark-grey;
+$sidebar-width: 18rem;
+$site__title-font-size: 1.5rem;
 $copyright-font-size: $font-scale-dot7;
 
 // content
