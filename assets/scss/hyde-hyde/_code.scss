@@ -4,7 +4,7 @@ pre {
 	tab-size: 2;
 	padding-left: 1%;
 	padding-right: 2%;
-	background: rgba($pink,.2);
+	background: rgba($code-background-color,.2);
 	border-top: 1px solid hsla(0,0%,100%,.1);
 	border-bottom: 1px solid rgba(0,0%,100%,0.1);
 	code {
@@ -33,9 +33,9 @@ pre {
 
 %code-style-npf {
 	padding: .1em .1em;
-	color: $pink;
+	color: $code-color;
 	border-radius: 3px;
-	background: rgba($pink,.2);
+	background: rgba($code-background-color,.2);
 }
 
 a {

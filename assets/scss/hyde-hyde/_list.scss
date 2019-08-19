@@ -18,10 +18,12 @@
 .item__title--small {
 	font-size: 1rem;
 }
-
+.post-list-meta {
+	color: $item-meta-color;
+	font-size: $item-meta-font-size;
+}
 .item__date {
 	color: $item__date-color;
-	display: block;
 	font-size: $item__date-font-size;
 	margin-bottom: .2rem;
 	margin-top: .2rem;

@@ -1,6 +1,6 @@
 .badge-category,
 a.badge-category {
-  color: $orange;
+  color: $badge-category-colour;
   &:hover, &:focus {
     @include link-hover();
   }
@@ -8,10 +8,10 @@ a.badge-category {
 
 .badge-tag,
 a.badge-tag {
-  color: $cyan;
+  color: $badge-tag-colour;
   &:hover, &:focus {
     @include link-hover();
-    color: $cyan;
+    color: $badge-tag-colour;
   }
 }
 
