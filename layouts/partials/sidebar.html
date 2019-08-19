@@ -20,13 +20,13 @@
     </div>
     <div class="collapsible-menu">
       <input type="checkbox" id="menuToggle">
-      <label for="menuToggle">{{ .Site.Title }}</label>
+      <label for="menuToggle">{{ .Site.Title }} <span class="logo-cursor"></span></label>
       <div class="menu-content">
         {{ partial "sidebar/social.html" . }}
         <hr>
         {{ partial "sidebar/menu.html" . }}
         <hr>
-        {{ partial "sidebar/projects.html" . }}
+        <!--{{ partial "sidebar/projects.html" . }}-->
       </div>
     </div>
     {{ partial "sidebar/copyright.html" . }}

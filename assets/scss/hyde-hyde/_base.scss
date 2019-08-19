@@ -207,6 +207,7 @@ a {
 	}
 	&.read-more-symbol {
 		text-decoration: none;
+		color: $one-orange;
 		@include link-no-decoration();
 	}
 }
