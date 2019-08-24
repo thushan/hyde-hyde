@@ -20,7 +20,7 @@
   .author-image {
     display: block;
     margin-top: 4px;
-  }  
+  }
   hr {
     border-color: $sidebar-line-color;
     margin: 0.1em 0;
@@ -116,10 +116,10 @@
 }
 .logo-cursor {
   display: inline-block;
-  width: 10px;
-  height: 0.7em;
+  width: 12px;
+  margin-bottom: -2px;
+  height: 0.9em;
   background: #fe5186;
-  /*background: #008F11;*/
   padding-top: 10px;
   margin-left: 0px;
   border-radius: 1px;
