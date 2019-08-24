@@ -3,6 +3,7 @@ a.badge-category {
   color: $badge-category-colour;
   &:hover, &:focus {
     @include link-hover();
+    color: $badge-category-colour;
   }
 }
 

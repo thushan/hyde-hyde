@@ -116,7 +116,7 @@ blockquote {
 	padding-bottom: 1rem;
 
 	&::before {
-		content: "注意";
+		content: "Note";
 		color: $yellow;
 		display: block;
 		text-align: center;
@@ -128,7 +128,7 @@ blockquote {
 	border-color: $orange;
 
 	&::before {
-		content: "警告";
+		content: "Warning";
 		color: $orange;
 	}
 }
@@ -138,7 +138,7 @@ blockquote {
 	border-color: $cyan;
 
 	&::before {
-		content: "情報";
+		content: "Warning";
 		color: $cyan;
 	}
 }
@@ -156,7 +156,7 @@ blockquote {
 		text-align: center;
 		
 		&::before {
-			content: "更新 ";
+			content: "Update ";
 			color: $light-blue;
 		}
 	}
