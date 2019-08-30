@@ -1,4 +1,6 @@
 
+<link rel="stylesheet" href="/prism/prism.css">
+<link rel="stylesheet" href="/prism/prism-colours.css">
 {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" true) }}
 
 {{ $style := resources.Get "scss/hyde-hyde.scss" | toCSS $options | fingerprint }}

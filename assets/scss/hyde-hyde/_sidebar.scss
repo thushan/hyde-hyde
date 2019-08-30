@@ -82,8 +82,16 @@
   }
 }
 
-.img--circle {
-	border-radius: 50%;
+.img--circle {  
+  border: 1px solid $one-orange-dark;
+  border-radius: 50%;
+  background: white;
+  &:hover {    
+    border: 1px solid $one-green;
+    -moz-box-shadow: 0 0 5px #fff;
+    -webkit-box-shadow: 0 0 5px #fff;
+    box-shadow: 0px 0px 5px #fff;
+  }
 }
 
 .img--headshot {

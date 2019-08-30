@@ -5,7 +5,8 @@ pre {
 	padding-left: 1%;
 	padding-right: 2%;
 	font-size: 1em;
-	background: rgba($code-background-color,.2);
+	line-height: 1.2em;
+	background: $code-background-color;
 	border-top: 1px solid hsla(0,0%,100%,.1);
 	border-bottom: 1px solid rgba(0,0%,100%,0.1);
 	code {

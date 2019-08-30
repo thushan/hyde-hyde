@@ -9,10 +9,10 @@
     {{ end }}
     &nbsp; <i class="fa fa-clock-o" aria-hidden="true"></i>
     {{.ReadingTime}} min read
-    &nbsp; <i class="fa fa-folder" aria-hidden="true"></i>
     {{ with .Params.categories }}
     {{ $total := len . }}
     {{ if gt $total 0 }}
+    &nbsp; <i class="fa fa-folder" aria-hidden="true"></i>
         {{ $total := sub $total 1 }}
         {{ range $i, $cat := sort . }}
             <a class="badge badge-category p-category" href="{{ "/categories/" | relURL }}{{ $cat | urlize }}">{{ $cat | upper }}</a>
