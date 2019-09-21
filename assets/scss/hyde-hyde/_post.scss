@@ -18,7 +18,13 @@
   }
   
 }
-
+.post h2 {
+  color: $one;
+  font-weight: 500;
+}
+.post h3 {
+  color: $one-yellow;
+}
 // .post__category {
 //   font-weight: bold;
 // }
