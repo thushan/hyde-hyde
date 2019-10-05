@@ -3,7 +3,7 @@
   <div class="container {{ with .Site.Params.sidebarSticky }}sidebar-sticky{{ end }}">
     <div class="sidebar-about">
       {{ if .IsHome }}<h1{{ else }}<span{{ end }} class="site__title">
-        <a class="u-url" href="{{ .Site.BaseURL }}">{{ .Site.Title }}  <span class="logo-cursor"></span></a>
+       <span class="prompt">&gt;</span><a class="u-url" href="{{ .Site.BaseURL }}">cd {{ .Site.Title }} <span class="logo-cursor"></span></a>
       {{ if .IsHome }}</h1>{{ else }}</span>{{ end }}
       {{ if and (isset .Site.Params "authorimage") }}
         {{ with .Site.Params.authorimage }}
@@ -20,7 +20,7 @@
     </div>
     <div class="collapsible-menu">
       <input type="checkbox" id="menuToggle">
-      <label for="menuToggle">{{ .Site.Title }} <span class="logo-cursor"></span></label>
+      <label for="menuToggle"><span class="prompt">&gt;</span> cd {{ .Site.Title }} <span class="logo-cursor"></span></label>
       <div class="menu-content">
         {{ partial "sidebar/social.html" . }}
         <hr>
