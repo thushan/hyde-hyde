@@ -36,8 +36,7 @@
   background: $tab-selector-colour;
 }
 
-.tabset > label:hover,
-.tabset > input:focus + label {
+.tabset > label:hover {
   color: $tab-selector-selected-colour;
 }
 
@@ -45,15 +44,18 @@
 .tabset > input:focus + label::after,
 .tabset > input:checked + label::after {
   background: $tab-selector-selected-colour;
+  transition: background 0.5s;
 }
 
 .tabset > input:checked + label {
-  border-color: #ccc;
-  border-bottom: 1px solid #fff;
+  border-color: $tab-border-colour;
+  border-bottom: 1px solid $tab-header-background-colour;
   margin-bottom: -1px;
+  transition: border-color 0.5s, border-bottom 0.0s;
 }
 
 .tab-panel {  
+  padding-left: 10px;
   border-top: 1px solid #ccc;
 }
 .tabset {

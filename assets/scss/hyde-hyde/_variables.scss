@@ -136,11 +136,10 @@ $table-row-odd-colour: #2D3034;
 $table-border-colour: $one-green;
 
 // tabs
+$tab-border-colour: #ccc;
 $tab-selector-colour: #8d8d8d;
 $tab-selector-selected-colour: $terminal-cursor;
-$tab-header-background-colour: #58595D;
-$tab-header-selected-background-colour: #2D3034;
-$tab-body-background-colour: $code-background-color;
+$tab-header-background-colour: $light-grey;
 
 // navigation
 $navigation-color: #c2255c;
