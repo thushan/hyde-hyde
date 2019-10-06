@@ -51,6 +51,7 @@
   border-color: $tab-border-colour;
   border-bottom: 1px solid $tab-header-background-colour;
   margin-bottom: -1px;
+  border-top-right-radius: 10px;
   transition: border-color 0.5s, border-bottom 0.0s;
 }
 
