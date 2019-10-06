@@ -4,8 +4,9 @@
 {{ if .Inner }}{{/* We don't use the inner content, but Hugo will complain if we don't reference it. */}}{{ end }}
 <div class="tabset">
 {{ range $i, $e := $tabs }}
-    {{ $id := printf "%s-%d" $tab_set_id $i }}
-  <input type="radio" name="tabset" id="{{ $id }}" aria-controls="{{ $id }}" checked="checked">
+	{{ $id := printf "%s-%d" $tab_set_id $i }}
+	{{ $checked := cond (eq $i 0) ` checked="checked"` "" }}
+  <input type="radio" name="tabset" id="{{ $id }}" aria-controls="{{ $id }}"{{ $checked | safeHTMLAttr  }}>
   <label for="{{ $id }}">{{ trim .name " " }}</label>
 {{ end }}
 
