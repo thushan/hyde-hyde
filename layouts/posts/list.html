@@ -1,0 +1,57 @@
+{{ define "header" }}
+  {{ partial "header.html" . }}
+{{ end }}
+
+{{ define "content" }}
+  <div class="post-list">
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" site.Params.mainSections) }}
+    {{ range $paginator.Pages }}
+      {{ if .Draft }}
+        {{ .Scratch.Set "draftPage" true }}
+      {{ else }}
+        {{ .Scratch.Set "draftPage" false }}
+      {{ end }}
+      <article class="post-list__item h-entry">
+        <h2 class="item__title--big p-name">
+          <a href="{{ .RelPermalink }}" class="{{if .Scratch.Get "draftPage" }}draft {{end}}u-url">{{ .Title }}</a>
+        </h2>
+        <div class="post-list-meta">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <time class="item__date dt-published" datetime="{{ .Date }}">
+            {{ .Date.Format (.Site.Params.dateformat | default "2 January, 2006") }}
+          </time>          
+          &nbsp; <i class="fa fa-clock-o" aria-hidden="true"></i>
+          {{.ReadingTime}} min read
+          &nbsp; <i class="fa fa-folder" aria-hidden="true"></i>
+          {{ with .Params.categories }}
+          {{ $total := len . }}
+          {{ if gt $total 0 }}
+              {{ $total := sub $total 1 }}
+              {{ range $i, $cat := sort . }}
+                  <a class="badge badge-category p-category" href="{{ "/categories/" | relURL }}{{ $cat | urlize }}">{{ $cat | upper }}</a>{{ if lt $i $total }},{{ end }}
+              {{ end }}
+          {{ end }}
+        {{ end }}
+        </div>
+        <span class="{{if .Scratch.Get "draftPage" }}draft {{end}}p-summary">
+        {{ if .Description }}
+        {{ .Description }}
+        {{ else }}
+        {{ .Summary }}
+        {{ end }}
+        </span>
+        {{ if .Truncated }}
+          ... <a class="read-more-symbol" href="{{ .RelPermalink }}">➦</a>
+        {{ end }}
+      </article>
+        {{ .Scratch.Delete "draftPage" }}
+     {{ end }}
+  </div>
+  {{ partial "pagination.html" . }}
+{{ end }}
+
+{{ define "footer" }}
+  <!-- Include Analytics here -->
+  <!-- Include Icons here -->
+  <script src='/prism/prism.js'></script>
+{{ end }}

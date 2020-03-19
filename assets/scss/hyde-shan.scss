@@ -62,3 +62,17 @@
 .tabset {
   border-bottom: 1px solid #ccc;
 }
+
+.notes-list li {
+  margin-left: -20px;
+  list-style-type: none;
+}
+.notes-categories li a:hover {
+  text-decoration: none;
+}
+.front-page article {
+  margin-bottom: 1em;
+}
+.front-page .badge {
+  margin: 0px;
+}

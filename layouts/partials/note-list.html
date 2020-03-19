@@ -1,0 +1,21 @@
+
+<div class="notes-list">
+{{ $notes := where .Site.RegularPages "Type" "in" site.Params.noteSections }}
+{{ range first 5 $notes }}
+    {{ if .Draft }}
+        {{ .Scratch.Set "draftPage" true }}
+    {{ else }}
+        {{ .Scratch.Set "draftPage" false }}
+    {{ end }}
+    <div hugo-nav="{{ .RelPermalink}}">
+        {{if not .Date.IsZero}}
+        <small>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <time class="pull-left hidden-tablet">{{ .Date.Format (.Site.Params.noteDateformat | default "2006-10-01") }}</time>
+        </small>
+        {{end}}
+        <a href="{{ .RelPermalink }}" class="{{if .Scratch.Get "draftPage" }}draft {{end}}u-url">{{ .LinkTitle }}</a>
+    </div>
+    {{ .Scratch.Delete "draftPage" }}
+{{ end }}
+</div>

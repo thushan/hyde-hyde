@@ -1,0 +1,33 @@
+<h1>{{ .Title }}</h1>
+<div class="post__meta"></div>
+<p>
+    Collection of noteworthy notes and guides.
+</p>
+
+<section>
+    <ul class="notes-categories">
+    {{ range $key, $value := $.Site.Taxonomies.guides }}
+    <li><a name="{{ $key }}">{{ $key }}</a> 
+        <ul class="notes-list">
+            {{ range $value.Pages }}
+                {{ if .Draft }}
+                    {{ .Scratch.Set "draftPage" true }}
+                {{ else }}
+                    {{ .Scratch.Set "draftPage" false }}
+                {{ end }}
+                    <li hugo-nav="{{ .RelPermalink}}"> 
+                        {{if not .Date.IsZero}}
+                        <small>
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <time class="pull-left hidden-tablet">{{ .Date.Format (.Site.Params.dateformat | default "2 January, 2006") }}</time>
+                        </small>
+                        {{end}}
+                        <a href="{{ .RelPermalink }}" class="{{if .Scratch.Get "draftPage" }}draft {{end}}u-url">{{ .LinkTitle }}</a>
+                    </li>
+                    {{ .Scratch.Delete "draftPage" }}
+            {{ end }}
+            </ul>
+        </li>
+    {{ end }}
+    </ul>
+</section>
