@@ -2,9 +2,15 @@
 <div class="post__meta">
     <!-- published date -->
     {{ if not .Date.IsZero }}
-      <i class="fa fa-calendar" aria-hidden="true"></i>
+      <i class="fa fa-calendar" aria-hidden="true" title="Published date"></i>
       <time class="item__date dt-published" datetime="{{ .Date }}">
         {{ .Date.Format (.Site.Params.dateformat | default "2 January, 2006") }}
+      </time>          
+    {{ end }}
+    {{ if not .Lastmod.IsZero }}
+      <i class="fa fa-calendar-check-o" aria-hidden="true" title="Last modified"></i>
+      <time class="item__date dt-published" datetime="{{ .Date }}">
+        {{ .Lastmod.Format (.Site.Params.dateformat | default "2 January, 2006") }}
       </time>          
     {{ end }}
     &nbsp; <i class="fa fa-clock-o" aria-hidden="true"></i>
