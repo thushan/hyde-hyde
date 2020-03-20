@@ -76,3 +76,13 @@
 .front-page .badge {
   margin: 0px;
 }
+figure {
+  margin: 1em;
+  figcaption {
+    border-bottom: none;
+  }
+  img {
+    margin: 0px;
+    padding: 0px
+  }
+}
