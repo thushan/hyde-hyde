@@ -7,7 +7,7 @@
         {{ .Date.Format (.Site.Params.dateformat | default "2 January, 2006") }}
       </time>          
     {{ end }}
-    {{ if not .Lastmod.IsZero }}
+    {{ if not (eq .Date .Lastmod )}}
       <i class="fa fa-calendar-check-o" aria-hidden="true" title="Last modified"></i>
       <time class="item__date dt-published" datetime="{{ .Date }}">
         {{ .Lastmod.Format (.Site.Params.dateformat | default "2 January, 2006") }}
