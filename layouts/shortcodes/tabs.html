@@ -1,3 +1,7 @@
+{{/**
+ * Inspired heavily by Mark Caron's Pure CSS Tabs
+ * https://codepen.io/markcaron/pen/MvGRYV?editors=1000
+ **/}}
 {{ .Page.Scratch.Add "tabset-counter" 1 }}
 {{ $tab_set_id := .Get "name" | default (printf "tabset-%s-%d" (.Page.RelPermalink) (.Page.Scratch.Get "tabset-counter") ) | anchorize }}
 {{ $tabs := .Scratch.Get "tabs" }}
@@ -6,7 +10,7 @@
 {{ range $i, $e := $tabs }}
 	{{ $id := printf "%s-%d" $tab_set_id $i }}
 	{{ $checked := cond (eq $i 0) ` checked="checked"` "" }}
-  <input type="radio" name="tabset" id="{{ $id }}" aria-controls="{{ $id }}"{{ $checked | safeHTMLAttr  }}>
+  <input type="radio" name="{{ $tab_set_id }}" id="{{ $id }}" aria-controls="{{ $id }}"{{ $checked | safeHTMLAttr  }}>
   <label for="{{ $id }}">{{ trim .name " " }}</label>
 {{ end }}
 
