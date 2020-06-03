@@ -1,5 +1,6 @@
+{{ if ne .Params.showRelated false }}
 {{ if .Site.Params.relatedPosts }}
-{{ $related := .Site.RegularPages.Related . | first 5 }}
+{{ $related := .Site.RegularPages.Related . | first .Site.Params.relatedPostCount }}
 {{ with $related }}
 <div class="post__related">
     <!-- related content -->
@@ -8,5 +9,6 @@
         {{ partial "posts-list.html" . }}
     </ul>
 </div>
+{{ end }}
 {{ end }}
 {{ end }}

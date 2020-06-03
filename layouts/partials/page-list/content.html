@@ -1,5 +1,6 @@
 <h1>{{ .Title }}</h1>
 <div class="post__meta"></div>
+{{ .Content }}
 <ul class="posts">
     {{ with .Data.Pages }}
         {{ partial "posts-list.html" . }}

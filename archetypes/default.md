@@ -2,8 +2,8 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 lastmod: {{ .Date }}
-tags : [ "dev", "hugo", "hyde-hyde"]
 categories : [ "dev" ]
+tags : [ "dev", "hugo", "hyde-hyde"]
 layout: post
 type:  "post"
 highlight: false

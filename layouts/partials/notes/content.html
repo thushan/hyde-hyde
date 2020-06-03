@@ -1,9 +1,6 @@
 <h1>{{ .Title }}</h1>
 <div class="post__meta"></div>
-<p>
-    Collection of noteworthy notes and guides.
-</p>
-
+{{ .Content }}
 <section>
     <ul class="notes-categories">
     {{ range $key, $value := $.Site.Taxonomies.guides }}

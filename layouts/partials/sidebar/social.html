@@ -32,7 +32,9 @@
 	{{ with .Site.Params.social.keybase }}
 	<a href="https://keybase.io/{{.}}" rel="me"><i class="fa fa-keybase" aria-hidden="true"></i></a>
 	{{ end }}
-	<a href="/index.xml" rel="me"><i class="fa fa-rss" aria-hidden="true"></i></a>
+	{{ with .OutputFormats.Get "rss" -}}
+	<a href="{{.Permalink}}" rel="me"><i class="fa fa-rss" aria-hidden="true"></i></a>
+	{{ end }}
 	{{ with .Site.Params.social.email }}
 	<a href="mailto:{{.}}" rel="me" class="u-email"><i class="fa fa-at" aria-hidden="true"></i></a>
 	{{ end }}
