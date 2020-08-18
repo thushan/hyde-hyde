@@ -1,8 +1,15 @@
-<h1>{{ .Title }}</h1>
-<div class="post__meta"></div>
-{{ .Content }}
-<ul class="posts">
-    {{ with .Data.Pages }}
-        {{ partial "posts-list.html" . }}
-    {{ end }}
-</ul>
+{{ $icon := .Parent.Params.icon}}
+<div class="post">
+    <h1>
+        {{ if $icon }}
+        <i class="fa fa-{{ $icon }}"></i>
+        {{ else }}
+        <i class="fa fa-archive"></i>
+        {{ end }}&nbsp;<a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a> &gt; 
+        {{ .Title }}
+    </h1>
+    {{ .Content }}
+{{ with .Data.Pages }}
+    {{ partial "posts-list.html" . }}
+{{ end }}
+</div>

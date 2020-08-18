@@ -1,0 +1,10 @@
+{{ range . }}
+<li>
+    <span class="list__title--small related-link">
+      <a href="{{ .RelPermalink }}" class="{{if .Draft }}draft {{end}}u-url">{{ .Title }}</a>
+        {{if not .Date.IsZero}}
+        <time class="pull-right hidden-tablet">{{ .Date.Format (.Site.Params.dateformat | default "2 January, 2006") }}</time>
+        {{end}}
+    </span>
+</li> 
+{{ end }}

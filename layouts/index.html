@@ -4,14 +4,12 @@
 
 {{ define "content" }}
 
-<h2>Latest Notes <small><a class="read-more-symbol" href="{{ "/notes/" | relURL | urlize }}">more ➦</a></small></h2>
+<h2>Latest Notes <small><a class="read-more-symbol" href="{{ "/guides/" | relURL | urlize }}">more ➦</a></small></h2>
 {{ partial "note-list.html" . }}
 <h2>Posts <small><a class="read-more-symbol" href="{{ "/posts/" | relURL | urlize }}">more ➦</a></small></h2>
 {{ partial "post-list.html" . }}
 {{ end }}
 
 {{ define "footer" }}
-  <!-- Include Analytics here -->
-  <!-- Include Icons here -->
   {{ partial "syntax-highlight.html" . }}
 {{ end }}

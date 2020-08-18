@@ -62,7 +62,26 @@
 .tabset {
   border-bottom: 1px solid #ccc;
 }
-
+.related-link a {
+  color: $link-color !important;
+}
+.related-link a:hover {
+  color: $link-hover-color !important;
+}
+.terms-badge,.terms-title {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+.terms-badge-count {
+  font-size: 0.8em;
+  color: $terminal-cursor;
+}
+.terms-list li {
+  margin-left: -15px;
+  margin-top: -10px;
+  font-size: 1.0em;
+  list-style-type: none;
+}
 .notes-list li {
   margin-left: -20px;
   list-style-type: none;

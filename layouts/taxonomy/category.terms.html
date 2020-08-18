@@ -1,0 +1,44 @@
+{{ define "header" }}
+    {{ partial "header.html" . }}
+{{ end }}
+
+{{ define "content" }}
+    <div class="post">
+        <h1><i class="fa fa-folder"></i>&nbsp;{{ .Title }}</h1>
+        {{ .Content }}
+
+    <!-- range all pages sorted by their title -->
+    {{ range sort .Site.Taxonomies.categories }}
+      <!-- 
+      <div class="categories-list">
+        <a class="badge terms-title" href="{{ .Page.Permalink }}"><i class="fa fa-folder-o"></i> {{ .Page.Title }}</a><span class="terms-badge-count"> ({{ .Count }})</span>
+      </div>
+      -->
+      <span class="terms-title" id="{{ .Page.Title | urlize }}">{{ .Page.Title }}</span><span class="terms-badge-count"> ({{ .Count }})</span>
+      <ul class="terms-list">
+        {{ range .Pages }}
+        {{ if .Draft }}
+            {{ .Scratch.Set "draftPage" true }}
+        {{ else }}
+            {{ .Scratch.Set "draftPage" false }}
+        {{ end }}
+        <li hugo-nav="{{ .RelPermalink}}">
+          {{if not .Date.IsZero}}
+          <small>
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time class="pull-left hidden-tablet">{{ .Lastmod.Format (.Site.Params.noteDateformat | default "2006-01-02") }}</time>
+          </small>
+          {{end}}
+          <a href="{{ .RelPermalink }}" class="{{if .Scratch.Get "draftPage" }}draft {{end}}u-url">{{ .LinkTitle }}</a>
+        </li>
+        {{ .Scratch.Delete "draftPage" }}
+        {{ end }}
+      </ul>
+    {{ end }}
+    </div>
+    
+{{ end }}
+
+{{ define "footer" }}
+    {{ partial "page-list/footer.html" . }}
+{{ end }}

@@ -6,7 +6,14 @@ a.badge-category {
     color: $badge-category-colour;
   }
 }
-
+.badge-guide,
+a.badge-guide {
+  color: $badge-guides-colour;
+  &:hover, &:focus {
+    @include link-hover();
+    color: $badge-guides-colour;
+  }
+}
 .badge-tag,
 a.badge-tag {
   color: $badge-tag-colour;
