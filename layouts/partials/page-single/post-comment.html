@@ -1,9 +1,16 @@
-{{ if ne .Params.showcomments false }}
-    <!-- Comment section -->
-    {{ if .Site.Params.Commento }}
-        {{ partial "comment/commento.html" . }}
+{{ $showComments := and (ne .Params.showcomments false) ( ne .Params.isarchived true )}}
+{{ if eq $showComments true }}
+    {{ $articleAgeDays := div (sub now.Unix .Date.Unix) 86400 }}
+    {{ if lt $articleAgeDays .Site.Params.postCommentsStaleDays }}    
+        {{ if .Site.Params.Commento }}
+            {{ partial "comment/commento.html" . }}
+        {{ end }}
+        {{ if .Site.Params.GraphCommentId }}
+            {{ partial "comment/graphcomment.html" . }}
+        {{ end }}
+    {{ else }}
+        <div class="comments-disabled">Post is <span class="comments-age">{{$articleAgeDays}}</span> days old, comments have been disabled. </div>
     {{ end }}
-    {{ if .Site.Params.GraphCommentId }}
-        {{ partial "comment/graphcomment.html" . }}
-    {{ end }}
+{{ else}}
+    <div class="comments-disabled">Comments have been disabled. </div>
 {{ end }}

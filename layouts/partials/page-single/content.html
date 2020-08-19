@@ -1,6 +1,7 @@
 {{ $include_toc := .Params.include_toc}}
 {{ $intro := .Params.summary }}
 {{ $toc := .Params.toc }}
+{{ $articleAgeDays := div (sub now.Unix .Date.Unix) 86400 }}
 <article class="h-entry">
   <header>
     <h1 class="p-name">{{ .Title }}</h1>
@@ -11,6 +12,11 @@
     {{ end }}
     {{ partial "page-single/post-meta.html" . }}
   </header>
+  {{ if gt $articleAgeDays .Site.Params.postStaleDays }}
+  <div class="article-old">
+    This post is <span class="article-age">{{$articleAgeDays}}</span> days old, it may be out of date and may no longer relevant.
+  </div>
+  {{ end }}
   {{ $tableOfContents := .TableOfContents }}
   {{ with .Site.Params.toc }}
   {{ if and (ne $include_toc false) ( $toc )  }}  

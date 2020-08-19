@@ -54,7 +54,23 @@
   border-top-right-radius: 10px;
   transition: border-color 0.5s, border-bottom 0.0s;
 }
-
+.article-old {
+  font-size: smaller;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid gray;
+  -moz-box-shadow: 0 0 5px rgba(255,255,255,0.1);
+  -webkit-box-shadow: 0 0 5px rgba(255,255,255,0.1);
+  box-shadow: 0px 0px 5px rgba(255,255,255,0.1);
+}
+.comments-disabled {
+  font-size: small;
+  font-style: italic;
+  border-top: 1px solid gray;
+}
+.comments-age, .article-age {
+  color: $terminal-cursor;
+}
 .tab-panel {  
   padding-left: 10px;
   border-top: 1px solid #ccc;
