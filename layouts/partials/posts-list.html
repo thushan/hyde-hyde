@@ -6,9 +6,13 @@
 {{ end }}
 <div hugo-nav="{{ .RelPermalink}}">
   {{if not .Date.IsZero}}
+  {{ $lastUpdated := .Lastmod.Format (.Site.Params.noteDateformat | default "2006-01-02") }}
+  {{ $pubDate := .Date.Format (.Site.Params.noteDateformat | default "2006-01-02") }}
   <small>
+    <label title="Last updated {{ $lastUpdated }}">
       <i class="fa fa-calendar" aria-hidden="true"></i>
-      <time class="pull-left hidden-tablet">{{ .Date.Format (.Site.Params.noteDateformat | default "2006-01-02") }}</time>
+      <time class="pull-left hidden-tablet">{{ $pubDate }}</time>
+    </label>
   </small>
   {{end}}
   <a href="{{ .RelPermalink }}" class="{{if .Scratch.Get "draftPage" }}draft {{end}}u-url">{{ .LinkTitle }}</a>
