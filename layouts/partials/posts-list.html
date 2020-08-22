@@ -8,7 +8,7 @@
   {{if not .Date.IsZero}}
   <small>
       <i class="fa fa-calendar" aria-hidden="true"></i>
-      <time class="pull-left hidden-tablet">{{ .Lastmod.Format (.Site.Params.noteDateformat | default "2006-01-02") }}</time>
+      <time class="pull-left hidden-tablet">{{ .Date.Format (.Site.Params.noteDateformat | default "2006-01-02") }}</time>
   </small>
   {{end}}
   <a href="{{ .RelPermalink }}" class="{{if .Scratch.Get "draftPage" }}draft {{end}}u-url">{{ .LinkTitle }}</a>
