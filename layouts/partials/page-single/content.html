@@ -1,7 +1,7 @@
 {{ $include_toc := .Params.include_toc}}
 {{ $intro := .Params.summary }}
 {{ $toc := .Params.toc }}
-{{ $articleAgeDays := div (sub now.Unix .Date.Unix) 86400 }}
+{{ $articleAgeDays := div (sub now.Unix .Lastmod.Unix) 86400 }}
 <article class="h-entry">
   <header>
     <h1 class="p-name">{{ .Title }}</h1>
@@ -14,7 +14,7 @@
   </header>
   {{ if gt $articleAgeDays .Site.Params.postStaleDays }}
   <div class="article-old">
-    This post is <span class="article-age">{{$articleAgeDays}}</span> days old, it may be out of date and may no longer relevant.
+    This post has not been modified in <span class="article-age">{{$articleAgeDays}}</span> days, it may be out of date and may no longer relevant.
   </div>
   {{ end }}
   {{ $tableOfContents := .TableOfContents }}
