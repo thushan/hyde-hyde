@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html prefix="og: http://ogp.me/ns#" lang="{{ .Site.LanguageCode }}">
     {{ block "header" . }}{{ end }}
     <body class="h-card {{ .Site.Params.themeColor }} {{if .Site.Params.layoutReverse}}layout-reverse{{end}}">
     {{ partial "sidebar.html" . }}
         <div class="content container">
-            {{ block "content" . }}{{ end }}
+            <main>
+                {{ block "content" . }}{{ end }}
+            </main>
         </div>
         {{ block "footer" . }}{{ end }}
     </body>

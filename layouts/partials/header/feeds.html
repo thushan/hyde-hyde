@@ -1,3 +1,8 @@
-{{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-{{ end -}}
+{{- with .Site.GetPage "/" }}
+    {{- range .OutputFormats }}
+        {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{- end }}    
+    {{ with .OutputFormats.Get "RSS" }}
+    <link rel="feed" type="application/rss+xml" href="{{ .Permalink }}" title="{{ $.Site.Title }}" />
+    {{ end }}
+{{- end }}

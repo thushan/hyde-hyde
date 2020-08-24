@@ -10,10 +10,26 @@
     {{ $.Scratch.Add "theTitle" .Site.Title}}
 {{ end }}
 <title>{{ $.Scratch.Get "theTitle" }}</title>
+<meta name="author" content="{{ .Site.Params.Author }}" />
+<meta name="copyright" content="{{ .Site.Params.Author }}" />
 {{ with .Site.Params.meta.description }}<meta name="description" content="{{ . }}">{{ end }}
 {{ with .Site.Params.meta.keywords }}<meta name="keywords" content="{{.}}">{{ end }}
 {{ template "_internal/twitter_cards.html" . }}
+{{ with .Site.Params.social.twitter }}
+<meta name="twitter:site" content="@{{.}}" />
+<meta name="twitter:creator" content="@{{.}}" />
+{{ end }}
+<meta name="robots" content="index,follow" /> 
+<meta name="googlebot" content="index,follow" />
+<meta name="theme-color" content="#292A2C" /> 
+<meta name="msapplication-TileColor" content="#292A2C" />
+<meta name="imagemode" content="force" />
+<meta name="coverage" content="Worldwide" /> 
+<meta name="distribution" content="Global" />
+<meta name="HandheldFriendly" content="True" /> 
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="apple-mobile-web-app-title" content="{{ .Site.Params.sitename }}" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-touch-fullscreen" content="yes" /> 
 {{ template "_internal/opengraph.html" . }}
-{{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-{{ end -}}

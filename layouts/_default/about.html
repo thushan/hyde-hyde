@@ -1,0 +1,28 @@
+{{ define "header" }}
+    {{ partial "header.html" . }}    
+    <script defer type="application/ld+json">
+        { 
+            "@context": "http://schema.org", 
+            "@type": "WebSite", 
+            "url": "{{ .Permalink }}", 
+            "sameAs": [
+            {{ with .Site.Params.social.twitter }}"https://twitter.com/{{.}}",{{ end }}
+            {{ with .Site.Params.social.github }}"https://github.com/{{.}}",{{ end }}
+            {{ with .Site.Params.social.linkedin }}"https://www.linkedin.com/in/{{.}}",{{ end }}
+            {{ with .Site.Params.social.keybase }}"https://keybase.io/{{.}}",{{ end }}
+            ], 
+            "name": "{{ .Title }} {{ .Site.Params.author }}", 
+            "logo": "{{ "favicon-16x16.png" | absURL }}" 
+        }
+    </script>
+{{ end }}
+{{ define "content" }}
+    <div class="post">
+        <h1>{{ .Title }}</h1>
+        {{ .Content }}
+  </div>
+{{ end }}
+
+{{ define "footer" }}
+<!-- Include Icons here -->
+{{ end }}
