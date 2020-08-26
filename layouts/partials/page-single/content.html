@@ -18,15 +18,27 @@
     This post has not been modified in <span class="article-age">{{$articleAgeDays}}</span> days, it may be out of date and may no longer relevant.
   </div>
   {{ end }}
-  {{ with .Params.images }}
-      <img title="{{  $title }}"  alt="{{ $title }}" style="float: right; margin: 10px 0px 0px 5px; display: inline" src="{{ index . 0 }}"  align="right">
-  {{ end }}
+  {{- with $.Params.images -}}
+    {{ $feature_image := index . 0 | absURL }}    
+    {{ with $feature_image }}
+      <figure>      
+        {{ with $.Params.caption}}
+        <img src="{{ $feature_image }}" alt="{{ . }}" style="max-width:100%">  
+        <figcaption>
+          <span class="img--caption"><strong>{{ $.Title }} </strong> {{ . }}</span>
+        </figcaption>
+        {{ else }}
+        <img src="{{ $feature_image }}" style="max-width:100%">  
+        {{ end }}
+      </figure>
+    {{ end }}  
+  {{- end }}
+  <div class="intro e-content">
+    <p>{{ $intro }}</p>
+  </div>
   {{ $tableOfContents := .TableOfContents }}
   {{ with .Site.Params.toc }}
   {{ if and (ne $include_toc false) ( $toc )  }}  
-    <div class="intro e-content">
-      <p>{{ $intro }}</p>
-    </div>
     <div class="toc-wrapper">
       <input type="checkbox" id="tocToggle">
       <label for="tocToggle">Table of Contents</label>
@@ -35,10 +47,6 @@
       {{ else if eq . "tocbot"}}
         <div class="toc" id="TableOfContents"></div>
       {{ end }}
-    </div>
-  {{ else }}
-    <div class="intro e-content">      
-      <p>{{ $intro }}</p>
     </div>
   {{ end }}  
   {{ end }}
