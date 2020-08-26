@@ -7,8 +7,7 @@
       {{ if .IsHome }}</h1>{{ else }}</span>{{ end }}
       {{ if and (isset .Site.Params "authorimage") }}
         {{ with .Site.Params.authorimage }}
-        {{ $strippedSlash := ($.Site.Params.authorimage | replaceRE "^(/)+(.*)" "$2") }}
-        {{ $authorImage := (printf "%s%s" $.Site.BaseURL $strippedSlash) }}
+        {{ $authorImage := . | absURL }}
         <div class="author-image">
           <img src="{{$authorImage}}" alt="Author Image" class="img--circle img--headshot element--center u-logo">
         </div>
