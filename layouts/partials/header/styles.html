@@ -12,6 +12,11 @@
 {{ $printStyle := resources.Get "scss/print.scss" | toCSS $options | fingerprint }}
 <link rel="stylesheet" href="{{ $printStyle.RelPermalink }}" integrity="{{ $printStyle.Data.Integrity }}" media="print">
 
+{{ range .Site.Params.customCss }}
+{{ $customStyle := resources.Get . | toCSS $options | fingerprint }}
+<link rel="stylesheet" href="{{ $customStyle.RelPermalink }}" integrity="{{ $customStyle.Data.Integrity }}">
+{{ end }}
+
 {{ with .Site.Params.toc }}
 {{ if eq . "hugo" }}
 {{ $hugoToc := resources.Get "scss/hugo-toc.scss" | toCSS $options | fingerprint }}
