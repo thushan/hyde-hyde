@@ -23,12 +23,12 @@
     {{ with $feature_image }}
       <figure>      
         {{ with $.Params.caption}}
-        <img src="{{ $feature_image }}" alt="{{ . }}" style="max-width:100%">  
+        <img src="{{ $feature_image }}" alt="{{ . }}" style="max-width:100%" loading="lazy" decoding="async">  
         <figcaption>
           <span class="img--caption"><strong>{{ $.Title }} </strong> {{ . }}</span>
         </figcaption>
         {{ else }}
-        <img src="{{ $feature_image }}" style="max-width:100%">  
+        <img src="{{ $feature_image }}" style="max-width:100%" loading="lazy" decoding="async">  
         {{ end }}
       </figure>
     {{ end }}  

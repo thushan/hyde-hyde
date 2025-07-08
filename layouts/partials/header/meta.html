@@ -13,6 +13,10 @@
 {{ $.Scratch.Set "featureImage" "" }}
 {{ with $.Params.images }}
   {{ $.Scratch.Set "featureImage" (index . 0 | absURL) }}
+{{ else }}
+  {{ with $.Site.Params.images }}
+    {{ $.Scratch.Set "featureImage" (index . 0 | absURL) }}
+  {{ end }}
 {{ end }}
 <title itemprop="name">{{ $.Scratch.Get "theTitle" }}</title>
 <meta name="author" content="{{ .Site.Params.Author }}" />
@@ -23,36 +27,8 @@
 
 {{- if .IsPage }}
 <meta name="title" content="{{ $.Scratch.Get "theTitle" }}" />
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary | truncate 160 }}{{ else }}{{ with .Site.Params.meta.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
 <meta name="keywords" content="{{ range $key, $value := .Params.tags }}{{ if $key }}, {{ end }}{{ $value }}{{ end }}" />
-<script defer type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "Article",
-      "headline": {{ .Title }},
-      "author": {
-        "@type": "Person",
-        "name": "{{ .Site.Params.author }}"
-      },
-      "datePublished": "{{ .Date.Format "2006-01-02" }}",
-      "description": {{ .Title }},
-      "wordCount": {{ .WordCount }},
-      "mainEntityOfPage": "True",
-      "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",          
-      "image": {
-        "@type": "imageObject",
-        "url": "{{ $.Scratch.Get "featureImage" }}"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "{{ .Site.Title }}",
-        "logo": {
-          "@type": "imageObject",
-          "url": "{{ "/favicon-32x32.png" | absURL }}"
-        }
-      }
-    }
-  </script>
 {{ else}}
 {{ with .Site.Params.meta.description }}<meta name="description" content="{{ . }}">{{ end }}
 {{ with .Site.Params.meta.keywords }}<meta name="keywords" content="{{.}}">{{ end }}

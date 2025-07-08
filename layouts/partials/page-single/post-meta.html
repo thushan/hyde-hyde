@@ -8,17 +8,17 @@
       </time>          
     {{ end }}
     {{ if not (eq .Date .Lastmod )}}
-      <i class="fa fa-calendar-check-o" aria-hidden="true" title="Last modified"></i>
+      &nbsp;<i class="fa fa-calendar-check-o" aria-hidden="true" title="Last modified"></i>
       <time class="item__date dt-published" datetime="{{ .Date }}">
         {{ .Lastmod.Format (.Site.Params.dateformat | default "2 January, 2006") }}
       </time>          
     {{ end }}
-    &nbsp; <i class="fa fa-clock-o" aria-hidden="true"></i>
-    {{.ReadingTime}} min read
+    &nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i>{{.ReadingTime}} min read
+  &nbsp;{{ partial "breadcrumb.html" . }}
   {{ with .Params.categories }}
     {{ $total := len . }}
     {{ if gt $total 0 }}
-    &nbsp; <i class="fa fa-folder" aria-hidden="true"></i>
+    <br/><i class="fa fa-folder" aria-hidden="true"></i>
         {{ $total := sub $total 1 }}
         {{ range $i, $cat := sort . }}
             <a class="badge badge-category p-category" href="{{ "/categories/" | relURL }}{{ $cat | urlize }}">{{ $cat | upper }}</a>
@@ -37,8 +37,8 @@
         {{ end }}
     {{ end }}
   {{ end }}
-  <br/>
   {{ with .Params.tags }}
+  <br/>
     {{ $total := len . }}
     {{ if gt $total 0 }}
     <i class="fa fa-tags" aria-hidden="true"></i>
