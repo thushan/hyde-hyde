@@ -6,7 +6,11 @@
 {{ if .IsHome }}
     {{ $.Scratch.Set "theTitle" .Site.Title }}
 {{ else }}
-    {{ $.Scratch.Set "theTitle" .Title}}
+    {{ if .Params.short_title }}
+        {{ $.Scratch.Set "theTitle" .Params.short_title}}
+    {{ else }}
+        {{ $.Scratch.Set "theTitle" .Title}}
+    {{ end }}
     {{ $.Scratch.Add "theTitle" " • "}}
     {{ $.Scratch.Add "theTitle" .Site.Title}}
 {{ end }}
