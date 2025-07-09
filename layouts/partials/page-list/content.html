@@ -1,11 +1,14 @@
-{{ $icon := .Parent.Params.icon}}
+{{ $icon := ""}}
+{{ if .Parent }}
+    {{ $icon = .Parent.Params.icon}}
+{{ end }}
 <div class="post">
     <h1>
         {{ if $icon }}
         <i class="fa fa-{{ $icon }}"></i>
         {{ else }}
         <i class="fa fa-archive"></i>
-        {{ end }}&nbsp;<a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a> &gt; 
+        {{ end }}&nbsp;{{ if .Parent }}<a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a> &gt; {{ end }}
         {{ .Title }}
     </h1>
     {{ .Content }}

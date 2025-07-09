@@ -9,7 +9,7 @@
         {{ with .Site.Params.authorimage }}
         {{ $authorImage := . | absURL }}
         <div class="author-image">
-          <a href="{{ $.Site.BaseURL }}"><img src="{{$authorImage}}" class="img--circle img--headshot element--center u-logo"></a>
+          <a href="{{ $.Site.BaseURL }}"><img src="{{$authorImage}}" alt="{{ $.Site.Title }} - Author Image" class="img--circle img--headshot element--center u-logo"></a>
         </div>
         {{ end }}
       {{ end }}

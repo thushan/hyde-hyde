@@ -28,7 +28,7 @@
           <span class="img--caption"><strong>{{ $.Title }} </strong> {{ . }}</span>
         </figcaption>
         {{ else }}
-        <img src="{{ $feature_image }}" style="max-width:100%" loading="lazy" decoding="async">  
+        <img src="{{ $feature_image }}" alt="{{ $.Title }}" style="max-width:100%" loading="lazy" decoding="async">  
         {{ end }}
       </figure>
     {{ end }}  

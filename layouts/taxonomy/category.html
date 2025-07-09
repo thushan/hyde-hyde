@@ -1,0 +1,19 @@
+{{ define "header" }}
+    {{ partial "header.html" . }}
+{{ end }}
+
+{{ define "content" }}
+<div class="post">
+    <h1>
+        <i class="fa fa-folder"></i>&nbsp;Posts in category "{{ .Title }}"
+    </h1>
+    {{ .Content }}
+    {{ with .Data.Pages }}
+        {{ partial "posts-list.html" . }}
+    {{ end }}
+</div>
+{{ end }}
+
+{{ define "footer" }}
+    {{ partial "page-list/footer.html" . }}
+{{ end }}
